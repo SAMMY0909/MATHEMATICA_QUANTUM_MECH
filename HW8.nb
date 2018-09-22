@@ -1,0 +1,6 @@
+image = Import["~/Dropbox/PHY622_QM/main.png"]
+Out[1]= 
+Manipulate[If[CurrentValue["AltKey"],data[slot]=Union[data[slot],Select[pixels,Norm[#-pt]<5&]]];
+LocatorPane[Dynamic[pt],Show[image,Graphics[{ColorData[1][#],Point/@data[#]}&/@Range[10]]],AutoAction->True],{slot,Range[10]},ControlType->SetterBar,ControlPlacement->Bottom,Initialization:>(Evaluate[Array[data,10]]=ConstantArray[{},10];
+pixels=PixelValuePositions[image,0];
+pt={0,0};)]

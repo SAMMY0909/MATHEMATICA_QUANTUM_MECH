@@ -1,0 +1,39 @@
+In[15]:=
+
+ Manipulate[Plot[Cos[a]*SphericalBesselJ[0,x]-Sin[a]*SphericalBesselY[0,x],{x,0,20}],{a,0,2*π}]
+
+ Manipulate[Plot[Cos[a]*SphericalBesselJ[1,x]-Sin[a]*SphericalBesselY[1,x],{x,0,20}],{a,0,2*π}]
+
+ Manipulate[Plot[Cos[a]*SphericalBesselJ[2,x]-Sin[a]*SphericalBesselY[2,x],{x,0,20}],{a,0,2*π}]
+
+Out[16]= Manipulate[Plot[Cos[a]*SphericalBesselJ[0, x] - 
+    Sin[a]*SphericalBesselY[0, x], {x, 0, 20}], {a, 0, 2*Pi}]
+Out[18]= Manipulate[Plot[Cos[a]*SphericalBesselJ[1, x] - 
+    Sin[a]*SphericalBesselY[1, x], {x, 0, 20}], {a, 0, 2*Pi}]
+Out[20]= Manipulate[Plot[Cos[a]*SphericalBesselJ[2, x] - 
+    Sin[a]*SphericalBesselY[2, x], {x, 0, 20}], {a, 0, 2*Pi}]
+In[24]:= f[x_]:=ArcTan[x*Tan[x]/(x+1*Tan[x])]-x
+In[25]:= f1[x_]:=ArcTan[x*Tan[x]/(x+10*Tan[x])]-x
+In[32]:= Plot[f[x],{x,1,10}]
+During evaluation of In[32]:= Power::infy: Infinite expression 1/0. encountered.
+Out[32]= 
+In[36]:= Show[%32,AxesLabel->{HoldForm[k],HoldForm[phase diff delta]},PlotLabel->HoldForm[DELTA VS K],LabelStyle->{GrayLevel[0]}]
+Out[36]= 
+In[33]:= Show[%32,ImageSize->Large]
+Out[33]= 
+In[34]:= Plot[f1[x],{x,1,10}]
+Out[34]= 
+In[37]:= Show[%34,AxesLabel->{HoldForm[K],HoldForm[Phase Diff delta]},PlotLabel->HoldForm[DELTA VS K],LabelStyle->{GrayLevel[0]}]
+Out[37]= 
+In[35]:= Show[%34,ImageSize->Large]
+Out[35]= 
+In[45]:= Plot[(4*π*Sin[f[x]]^2)/x^2,{x,0,20}]
+During evaluation of In[45]:= Power::infy: Infinite expression 1/0. encountered.
+Out[45]= 
+In[47]:= Show[%45,AxesLabel->{HoldForm[K],HoldForm[CS]},PlotLabel->HoldForm[TOTAL CS VS K OMEGA=1
+],LabelStyle->{GrayLevel[0]}]
+Out[47]= 
+In[48]:= Plot[(4*π*Sin[f1[x]]^2)/x^2,{x,0,20}]
+Out[48]= 
+In[49]:= Show[%48,AxesLabel->{HoldForm[K],HoldForm[CS]},PlotLabel->RawBoxes[RowBox[{RowBox[{"TOTAL"," ","CS"," ","VS"," ","K"}],","," ",RowBox[{"OMEGA","=","10"}]}]],LabelStyle->{GrayLevel[0]}]
+Out[49]= 

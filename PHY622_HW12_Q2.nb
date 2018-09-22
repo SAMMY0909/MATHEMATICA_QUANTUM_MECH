@@ -1,0 +1,265 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9506,        257]
+NotebookOptionsPosition[      8971,        234]
+NotebookOutlinePosition[      9304,        249]
+CellTagsIndexPosition[      9261,        246]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f2", "[", 
+   RowBox[{"\[Theta]_", ",", "l_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"1", "/", "2"}], "*", "\[ImaginaryI]"}], ")"}], "*", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", "*", "l"}], "+", "1"}], ")"}], "*", 
+   RowBox[{"SphericalHarmonicY", "[", 
+    RowBox[{"l", ",", "0", ",", "\[Theta]", ",", "0"}], "]"}], "*", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"Exp", "[", 
+      RowBox[{"2", "*", "\[ImaginaryI]", "*", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"l", "*", "50"}], "]"}]}], "]"}], "-", "1"}], ")"}], 
+   RowBox[{"(*", 
+    RowBox[{
+    "The", " ", "number", " ", "in", " ", "exponential", " ", "inside", " ", 
+     "exp", " ", "is", " ", "arbitrarily", " ", 
+     RowBox[{"chosen", "."}]}], "*)"}]}]}]], "Input",
+ CellChangeTimes->{3.733417899611885*^9, 3.733419881622178*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f3", "[", "\[Theta]_", "]"}], ":=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{"f", "[", 
+     RowBox[{"\[Theta]", ",", "l"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"l", ",", "1", ",", "7", ",", "2"}], "}"}]}], "]"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "L", " ", "channels", " ", "Automatically", " ", "summed", " ", "by", " ", 
+    "sum", " ", "function"}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.733417905499131*^9, 3.733417905999131*^9}, {
+  3.733418156707459*^9, 3.733418188955545*^9}, {3.73341985840618*^9, 
+  3.733419871990306*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dcs2", "[", 
+   RowBox[{"\[Theta]_", ",", "k_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", "0.75", ")"}], "*", 
+   RowBox[{"(", 
+    RowBox[{"1", "/", 
+     RowBox[{"k", "^", "2"}]}], ")"}], "*", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"f3", "[", "\[Theta]", "]"}], "-", 
+     RowBox[{"f3", "[", 
+      RowBox[{"\[Pi]", "-", "\[Theta]"}], "]"}]}], ")"}], "*", 
+   RowBox[{"Conjugate", "[", 
+    RowBox[{
+     RowBox[{"f3", "[", "\[Theta]", "]"}], "-", 
+     RowBox[{"f3", "[", 
+      RowBox[{"\[Pi]", "-", "\[Theta]"}], "]"}]}], "]"}], 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Fermionic", " ", "triplet", " ", "state", " ", "scattering"}], 
+     ",", " ", 
+     RowBox[{
+     "so", " ", "odd", " ", "symmetry", " ", "and", " ", "multiplied", " ", 
+      "by", " ", "0.75", " ", 
+      RowBox[{"(", 
+       RowBox[{
+       "contribution", " ", "of", " ", "three", " ", "states", " ", "out", 
+        " ", "of", " ", "4", " ", "total"}], ")"}]}], ",", " ", 
+     RowBox[{"k", " ", "is", " ", "the", " ", "momenta"}]}], 
+    "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.7334177902872257`*^9, 3.733417810228339*^9}, 
+   3.733417920624777*^9, {3.733418617994966*^9, 3.733418634471834*^9}, {
+   3.733419839058084*^9, 3.733419844893935*^9}, {3.7334198858654222`*^9, 
+   3.733419938468623*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"LogPlot", "[", 
+     RowBox[{
+      RowBox[{"Abs", "[", 
+       RowBox[{"Re", "[", 
+        RowBox[{"dcs2", "[", 
+         RowBox[{"\[Theta]", ",", "k"}], "]"}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+      RowBox[{"Mesh", "->", "All"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "1", ",", "100"}], "}"}]}], "]"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "We", " ", "choose", " ", "to", " ", "plot", " ", "absolute", " ", "of", 
+    " ", "real", " ", "part", " ", "of", " ", "the", " ", "differential", " ",
+     "cross", " ", "section", " ", "because", " ", "there", " ", "may", " ", 
+    "be", " ", "a", " ", "remnant", " ", "interference", " ", "term"}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{
+  3.7334179265605593`*^9, {3.73341807721038*^9, 3.733418106377495*^9}, {
+   3.733418239230929*^9, 3.73341830757521*^9}, {3.7334186519488*^9, 
+   3.733418661009218*^9}, 3.7334198278909807`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], 1, 100}}, Typeset`size$$ = {360., {104., 110.}},
+     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`k$161548$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$161548$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> LogPlot[
+        Abs[
+         Re[
+          $CellContext`dcs2[$CellContext`\[Theta], $CellContext`k$$]]], \
+{$CellContext`\[Theta], 0, Pi}, Mesh -> All, PlotRange -> Automatic], 
+      "Specifications" :> {{$CellContext`k$$, 1, 100}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{407., {147., 154.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.7334178312707148`*^9, 3.733417928007468*^9, {3.733417970068757*^9, 
+   3.73341799583521*^9}, {3.733418088416705*^9, 3.7334181079332333`*^9}, 
+   3.733418174913814*^9, {3.733418214444014*^9, 3.733418260128878*^9}, {
+   3.733418290812697*^9, 3.7334183084392557`*^9}, 3.733418508209489*^9, {
+   3.733418646596797*^9, 3.733418662997424*^9}, 3.7334186950504637`*^9, 
+   3.733418772763287*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"PolarPlot", "[", 
+    RowBox[{
+     RowBox[{"Abs", "[", 
+      RowBox[{"Re", "[", 
+       RowBox[{"dcs2", "[", 
+        RowBox[{"\[Theta]", ",", "k"}], "]"}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+     RowBox[{"Mesh", "->", "All"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "Automatic"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "1", ",", "100"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7334189561074247`*^9, 3.733418986868256*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`k$$], 1, 100}}, Typeset`size$$ = {360., {43., 50.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`k$173122$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`k$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$173122$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> PolarPlot[
+        Abs[
+         Re[
+          $CellContext`dcs2[$CellContext`\[Theta], $CellContext`k$$]]], \
+{$CellContext`\[Theta], 0, Pi}, Mesh -> All, PlotRange -> Automatic], 
+      "Specifications" :> {{$CellContext`k$$, 1, 100}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{407., {86., 93.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.733418965191523*^9, 3.7334189877108727`*^9}, 
+   3.733420070483469*^9}]
+}, Open  ]]
+},
+WindowSize->{956, 1021},
+WindowMargins->{{Automatic, 4}, {0, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 874, 24, 56, "Input"],
+Cell[1435, 46, 585, 15, 33, "Input"],
+Cell[2023, 63, 1329, 35, 99, "Input"],
+Cell[CellGroupData[{
+Cell[3377, 102, 1106, 26, 76, "Input"],
+Cell[4486, 130, 2080, 42, 351, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6603, 177, 589, 15, 59, "Input"],
+Cell[7195, 194, 1760, 37, 196, "Output"]
+}, Open  ]]
+}
+]
+*)
+
